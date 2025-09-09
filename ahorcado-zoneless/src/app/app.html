@@ -1,0 +1,37 @@
+
+<div class="game-container">
+  <h1>Juego del Ahorcado</h1>
+  
+  <div class="game-content">
+    <app-img-ahorcado [fallos]="fallos()"></app-img-ahorcado>
+    
+    <div class="game-info">
+      <app-palabra-display [palabra]="palabraVisible()"></app-palabra-display>
+      
+      <div class="stats">
+        <p>Intentos restantes: {{ estado().intentosRestantes }}</p>
+        @if (estado().juegoTerminado) {
+          <div class="resultado" [class.ganado]="estado().ganado" [class.perdido]="!estado().ganado">
+            <h2>{{ estado().ganado ? '🎉 ¡Ganaste!' : '💀 ¡Perdiste!' }}</h2>
+            @if (!estado().ganado) {
+              <p>La palabra era: <strong>{{ estado().palabra }}</strong></p>
+            }
+          </div>
+        }
+      </div>
+      
+      <app-teclado-screen 
+        [letrasAcertadas]="estado().letrasAcertadas"
+        [letrasErroneas]="estado().letrasErroneas"
+        [juegoTerminado]="estado().juegoTerminado"
+        (letraSeleccionada)="procesarLetra($event)">
+      </app-teclado-screen>
+      
+      <button 
+        class="btn-nuevo-juego"
+        (click)="nuevoJuego()">
+        Nuevo Juego
+      </button>
+    </div>
+  </div>
+</div>

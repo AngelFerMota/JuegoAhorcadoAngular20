@@ -1,0 +1,108 @@
+.game-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
+  min-height: 100vh;
+  color: #333;
+}
+h1 {
+  text-align: center;
+  color: #5a2d82;
+  margin-bottom: 30px;
+  font-size: 3rem;
+  text-shadow: 2px 2px 4px rgba(255,255,255,0.3);
+}
+
+.game-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.game-info {
+  text-align: center;
+  width: 100%;
+  max-width: 600px;
+}
+
+.stats {
+  margin: 20px 0;
+  font-size: 1.2rem;
+  font-weight: bold;
+  background: rgba(255,255,255,0.25);
+  padding: 15px;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  color: #5a2d82;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.resultado {
+  margin: 20px 0;
+  padding: 20px;
+  border-radius: 15px;
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+}
+
+.resultado.ganado {
+  background: linear-gradient(135deg, #43a047 0%, #7cb342 100%);
+  color: white;
+  animation: celebrate 1s ease-in-out;
+}
+
+.resultado.perdido {
+  background: linear-gradient(135deg, #ff6b6b 0%, #f39c12 100%);
+  color: white;
+  animation: shake 0.5s ease-in-out;
+}
+
+@keyframes celebrate {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+.btn-nuevo-juego {
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  background: linear-gradient(135deg, #c79ecf 0%, #8e44ad 100%);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.btn-nuevo-juego:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+  background: linear-gradient(135deg, #8e44ad 0%, #c79ecf 100%);
+}
+
+@media (max-width: 768px) {
+  .game-container {
+    padding: 10px;
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+  
+  .stats {
+    font-size: 1rem;
+  }
+}
