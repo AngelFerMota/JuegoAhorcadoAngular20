@@ -1,0 +1,88 @@
+.teclado {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 20px;
+  align-items: center;
+}
+
+.fila {
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+}
+
+.tecla {
+  padding: 12px 16px;
+  border: 2px solid #e0d6eb;
+  border-radius: 10px;
+  background: #faf5ff;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  min-width: 40px;
+  transition: all 0.3s;
+  color: #5a2d82;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.tecla:hover:not(:disabled) {
+  transform: scale(1.05);
+  border-color: #9c27b0;
+  background: #f1e6ff;
+}
+
+.tecla.disponible {
+  background: #faf5ff;
+  color: #5a2d82;
+}
+
+.tecla.acertada {
+  background: #43a047;
+  color: white;
+  border-color: #2e7d32;
+  box-shadow: 0 2px 10px rgba(67, 160, 71, 0.4);
+}
+
+.tecla.erronea {
+  background: #e53935;
+  color: white;
+  border-color: #c62828;
+  box-shadow: 0 2px 10px rgba(229, 57, 53, 0.4);
+}
+
+/* Estilos para teclas cuando el juego está terminado */
+.tecla.resultado.perdido {
+  background: linear-gradient(135deg, #ff6b6b 0%, #f39c12 100%);
+  color: white;
+  border-color: #c62828;
+  opacity: 0.85;
+  animation: shake 0.5s ease-in-out;
+  box-shadow: 0 2px 12px rgba(229, 57, 53, 0.5);
+}
+
+.tecla.resultado.ganado {
+  background: linear-gradient(135deg, #43a047 0%, #7cb342 100%);
+  color: white;
+  border-color: #2e7d32;
+  opacity: 0.85;
+  animation: celebrate 0.5s ease-in-out;
+  box-shadow: 0 2px 12px rgba(67, 160, 71, 0.5);
+}
+
+/* Animaciones para las teclas */
+@keyframes celebrate {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-2px); }
+  75% { transform: translateX(2px); }
+}
+
+.tecla:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}

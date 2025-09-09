@@ -1,0 +1,17 @@
+<div class="teclado">
+  @for (fila of filas(); track $index) {
+    <div class="fila">
+      @for (tecla of fila; track tecla.letra) {
+        <button 
+          class="tecla"
+          [class.disponible]="tecla.estado === 'disponible'"
+          [class.acertada]="tecla.estado === 'acertada'"
+          [class.erronea]="tecla.estado === 'erronea'"
+          [disabled]="tecla.disabled"
+          (click)="onLetraClick(tecla.letra)">
+          {{ tecla.letra }}
+        </button>
+      }
+    </div>
+  }
+</div>
